@@ -1,5 +1,109 @@
 #include <stdio.h>
 #include <math.h>
+
+void maxN(){
+
+    int choixTab[1000],sizeTab;
+
+    printf("Entrer rows number: \n");
+    scanf("%d", &sizeTab);
+
+    for (int i = 0; i < sizeTab; i++)
+    {
+        printf("Entrer element de index: %d\n", i);
+        scanf("%d", &choixTab[i]);
+    }
+    
+    for (int i = 0; i < sizeTab; i++)
+    {
+        if (choixTab[0] < choixTab[i])
+        {
+            choixTab[0] = choixTab[i];
+        }
+    }
+    
+    printf("Le maximum nombre dans la list est: %d\n",choixTab[0]);
+
+}
+void minN(){
+
+     int choixTab[1000],sizeTab;
+
+    printf("Entrer rows number: \n");
+    scanf("%d", &sizeTab);
+
+    for (int i = 0; i < sizeTab; i++)
+    {
+        printf("Entrer element de index: %d\n", i);
+        scanf("%d", &choixTab[i]);
+    }
+    
+    for (int i = 0; i < sizeTab; i++)
+    {
+        if (choixTab[0] > choixTab[i])
+        {
+            choixTab[0] = choixTab[i];
+        }
+    }
+    
+    printf("Le minimum nombre dans la list est: %d\n",choixTab[0]);
+    
+}
+void moyenneN(){
+
+    int choixTab[1000],sizeTab,resultat;
+
+    printf("Entrer rows number: \n");
+    scanf("%d", &sizeTab);
+
+    for (int i = 0; i < sizeTab; i++)
+    {
+        printf("Entrer element de index: %d\n", i);
+        scanf("%d", &choixTab[i]);
+    }
+    for (int i = 0; i < sizeTab; i++)
+    {
+        resultat = choixTab[i] + choixTab[i+1];
+
+    }
+    printf("le moyenne de tout les valeur est: %d \n",resultat /sizeTab );
+    
+}
+
+
+void tableauMenu(){
+    int choixTab;
+    do
+    {
+    printf("\n \n \n \n======================== Choisissez une operation ======================== \n");
+    printf("\n1. Max : \n");
+    printf("2. Min : \n");
+    printf("3. Moyenne : \n");
+    printf("4. retoune a menu principal : \n");
+    printf("\n \n \n======================== Choisissez une operation ======================== \n");
+    scanf("%d", &choixTab);
+
+    switch (choixTab)
+    {
+    case 1:
+        maxN();
+        break;
+    case 2:
+        minN();
+        break;
+    case 3:
+
+        moyenneN();
+        break;
+    
+    default:
+        break;
+    }
+
+    } while (choixTab !=4);
+    
+}
+
 float sum(float x, float y){
     int result;
     result = x + y;
@@ -44,7 +148,8 @@ do
     printf("4. Division \n");
     printf("5. Carre \n");
     printf("6. Racine carree \n");
-    printf("7. Quitter \n");
+    printf("7. Menu tableaux \n");
+    printf("8. Quitter \n");
     printf("======================== Choisissez une operation ========================\n \n \n");
     scanf("%f", &choix);
     if (choix == 1)
@@ -81,8 +186,10 @@ do
         printf("Entrer le premier nombre: \n");
         scanf("%f", &j);
         printf("Le resultat de la Racine est: \n %f", racine(j),"\n"); 
+    }else if(choix == 7){
+        tableauMenu();
     }
-} while (choix != 7);
+} while (choix != 8);
 
 
 }
